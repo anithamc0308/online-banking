@@ -1,0 +1,22 @@
+<div class="bg-col" >
+  <app-header class="fixed-top"></app-header>
+  <div *ngIf="flag">
+    <app-primary-nav (loggedOff)="logout($event)"></app-primary-nav>
+  </div>
+  <div class="row mx-4 mt-4">
+    <div class="col-10 container" *ngIf="!flag">
+        <app-login (loggedIn)="loginFlag($event)"></app-login>
+    </div>
+    <!-- <div class="col-3 container" *ngIf="flag">
+      <app-left-nav></app-left-nav>
+  </div> -->
+  <div class="col-12 container" *ngIf="flag">
+    <mat-card class="mb-2">
+      <!-- <app-accounts></app-accounts> -->
+      <router-outlet></router-outlet>
+    </mat-card>
+</div>  
+  </div>
+  <div class="row" style="margin-top: 50px"><p></p></div>
+  <app-footer class="bottom-fixed"></app-footer>
+</div>
